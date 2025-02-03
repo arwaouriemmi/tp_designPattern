@@ -4,6 +4,7 @@ class ModelInteger extends Observable {
       this.i = 0;
       this.MIN_VALUE = 0;
       this.MAX_VALUE = 10;
+      this.lock = false; 
     }
   
     plus() {
@@ -16,13 +17,17 @@ class ModelInteger extends Observable {
       }
     
   
+
     setValue(value) {
-      if (value >= this.MIN_VALUE && value <= this.MAX_VALUE) {
-        this.i=value;
-        super.setChanged();
-        super.notifyObservers(this);
-    }
-    }
+      if (!this.lock && value >= this.MIN_VALUE && value <= this.MAX_VALUE) {
+          this.lock = true;
+          this.i = value;
+          super.setChanged();
+          super.notifyObservers(this);
+          this.lock = false;
+      }
+  }
+
   
 
 }

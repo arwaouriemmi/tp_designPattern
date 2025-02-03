@@ -32,25 +32,22 @@
 
         <script defer src="js/utils.js"></script>
         <script defer src="js/model.js"></script>
-        <!--<script defer src="js/view.js"></script>-->
+        <script defer src="js/view.js"></script>
         <script defer src="js/controler.js"></script>
+        <script defer src="js/superController.js"></script>
         <script defer src="js/main.js"></script>
 
   </head>
   <body>
-    <div id="app">
-        <h1>TP IHM</h1>
-        
-        <div class="widget">
-            <button class="decrement">-</button>
-            <input type="text" class="value" value="2" readonly>
-            <button class="increment">+</button>
-            <input type="range" class="slider" min="0" max="10" value="2">
-            <label>On / Off <input type="checkbox" class="toggle" checked></label>
+    <div class="outer">
+        <!-- En-tête -->
+        <div class="top">
+            <h1 id="title">TP IHM</h1>
         </div>
 
-    </div>
 
-    <script src="js/view.js"></script>
+    </div>
 </body>
+
+
 </html>

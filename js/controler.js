@@ -39,6 +39,7 @@ class Controller extends Observer  {
       console.log(`Toggle changed: ${isChecked}`);
       this.view.incrementButton.disabled = !isChecked;
       this.view.decrementButton.disabled = !isChecked;
+      this.view.slider.disabled = !isChecked;
   }
 }
 

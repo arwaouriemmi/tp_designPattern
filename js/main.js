@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
  // document.getElementById("title").textContent = $.i18n('title');
 
-  let model = new ModelInteger();  
-  let controller = new Controller(model);
-
+ let model1 = new ModelInteger();
+ let model2 = new ModelInteger();
+ let superController = new SuperController(model1,model2);
 
 
 });
