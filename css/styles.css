@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #a8e6a3;
+  text-align: center;
+}
+
+#app {
+  width: 60%;
+  margin: auto;
+  background: #77dd77;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.widget, .counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  width: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.slider {
+  flex-grow: 1;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
