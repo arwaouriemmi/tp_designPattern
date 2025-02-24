@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
  let model1 = new ModelInteger();
  let model2 = new ModelInteger();
- let superController = new SuperController(model1,model2);
+ let modelActivation1 = new ModelActivation();
+ let modelActivation2= new ModelActivation(); 
+ let superController = new SuperController(model1,model2,modelActivation1,modelActivation2);
 
 
 });

@@ -82,7 +82,7 @@ class View {
   update(value) {
     this.valueField.value = value;
     this.slider.value = value;
-    this.incrementButton.disabled = value >= 10;
-    this.decrementButton.disabled = value <= 0;
+    console.log("updated");
   }
+
 }

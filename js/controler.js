@@ -1,14 +1,23 @@
 class Controller extends Observer  {
-  constructor(model) {
+  constructor(model,modelActivation) {
       super(); 
       this.model = model;
       this.view = new View(this); 
       this.model.addObservers(this); 
+      this.modelActivation = modelActivation;
+      this.mediateur = new MediateurActivation(this.model, this.modelActivation, this.view);
+      this.updateObserverInstance = new updateObserver(this.mediateur);
+      this.model.addObservers(this.updateObserverInstance);
+      this.modelActivation.addObservers(this.updateObserverInstance);
+    
+
   }
 
  
   update(observable, object) {
     this.view.update(observable.i); 
+    this.modelActivation.setPlusActive(observable.i < this.model.MAX_VALUE);
+    this.modelActivation.setMinusActive(observable.i > this.model.MIN_VALUE);
     console.log('Updated value of i:',observable.i);
   }
 
@@ -25,22 +34,19 @@ class Controller extends Observer  {
       if (!isNaN(value)) {
           this.model.setValue(value);
       } else {
-          this.view.valueField.value = this.model.getValue(); // Réinitialise en cas d'entrée invalide
+          this.view.valueField.value = this.model.getValue(); 
       }
   }
 
-  // Mise à jour de la valeur depuis le slider
   updateValueFromSlider(value) {
       this.model.setValue(parseInt(value));
   }
 
-  // Action sur le toggle On/Off (exemple d'une fonctionnalité supplémentaire)
   toggleState(isChecked) {
-      console.log(`Toggle changed: ${isChecked}`);
-      this.view.incrementButton.disabled = !isChecked;
-      this.view.decrementButton.disabled = !isChecked;
-      this.view.slider.disabled = !isChecked;
+    console.log(`toggleState appelé avec: ${isChecked}`); 
+    this.modelActivation.setToggleActive(isChecked);
   }
+
 }
 
 

@@ -5,6 +5,11 @@ class ModelInteger extends Observable {
       this.MIN_VALUE = 0;
       this.MAX_VALUE = 10;
       this.lock = false; 
+      this.ModelActivation=new ModelActivation();
+
+    }
+    getValue(){
+      return this.i ;
     }
   
     plus() {
